@@ -4,13 +4,13 @@ spec-reader.js - reads binary file written by spec.js
 
 ## How to test
 
-```js
+```shell
 node spec.js
 node spec-reader.js
 ```
 
 ## png file reader
 
-```js
+```shell
 node png-reader.js
 ```
