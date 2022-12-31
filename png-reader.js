@@ -74,6 +74,7 @@ function interpretData(type, data, chunkTypeBuffer) {
 
 fs.readFile("./img.png", null, (err, data) => {
   const buff = data.buffer;
+
   const dataView = new DataView(buff);
 
   let chunk = 0;
