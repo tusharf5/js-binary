@@ -4,13 +4,14 @@ const file = fs.readFileSync("spec.cus", {
   encoding: null,
 });
 
-const uint8 = new Uint8Array(file.byteLength);
-
-file.copy(uint8, 0, 0, file.byteLength);
-
 let nextOffset = 0;
 
-const dv1 = new DataView(uint8.buffer);
+// When casting the Node.js Buffer to a DataView or TypedArray use the byteOffset
+// to refer only to the part of `nodeBuffer.buffer` that contains the memory
+// for `nodeBuffer`.
+// This happens sometimes when allocating a Buffer smaller
+// than Buffer.poolSize, the buffer does not start from a zero offset on the underlying ArrayBuffer.
+const dv1 = new DataView(file.buffer, file.byteOffset, file.byteLength);
 
 const version = dv1.getUint8(nextOffset, false);
 nextOffset = nextOffset + 1;
