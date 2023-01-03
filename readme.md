@@ -17,6 +17,17 @@ node png-reader.js
 
 ## Specification
 
+### Sample Data
+
+```json
+{
+  "version": 1,
+  "name": "JOhn",
+  "rank": 32456,
+  "hobbies": ["sports", "hiking", "programming"],
+}
+```
+
 ### Version Chunk
 
 The first byte represents an unsigned integer which gives the version.
