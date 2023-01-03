@@ -14,9 +14,9 @@ let nextOffset = 0;
 const dv1 = new DataView(file.buffer, file.byteOffset, file.byteLength);
 
 const version = dv1.getUint8(nextOffset, false);
-nextOffset = nextOffset + 1;
+nextOffset++;
 const nameLength = dv1.getUint8(nextOffset, false);
-nextOffset = nextOffset + 1;
+nextOffset++;
 
 let name = "";
 for (let i = 0; i < nameLength; i++) {
@@ -27,7 +27,7 @@ for (let i = 0; i < nameLength; i++) {
 const rank = dv1.getUint32(nextOffset, false);
 nextOffset = nextOffset + 4;
 const hobbiesLength = dv1.getUint8(nextOffset, false);
-nextOffset = nextOffset + 1;
+nextOffset++;
 
 const hobbies = [];
 
